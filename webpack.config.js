@@ -15,6 +15,12 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'), // here we tell webpack where do we want our bundled file to be saved
     filename: '[name].[chunkhash].js' // name is taken from 'entry' object's keys. If specified below, for style files for example, also is taken from 'plugins' array.
   },
+  resolve: { //Configure how modules are resolved
+    alias: {
+      Comp: path.resolve(__dirname, 'src/components') // now we can specify simply 'import util from "Comp/Util"' in stead of full relative path
+    },
+    extensions: ['.js', '.jsx'] // Automatically resolve certain extensions, so that no extension is needed at the end of the import statement
+  },
   module: {
     rules: [
       {
